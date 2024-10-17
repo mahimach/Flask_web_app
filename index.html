@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Matcher</title>
+</head>
+<style>
+    .container {
+        max-width: 600px;
+        padding: 20px;
+        background-color: #f9f9f9;
+    }
+    form {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+</style>
+<body>
+    <div class = 'container'>
+    <h1><center>Regex Matcher</center></h1>
+    <form method="POST" action="/results">
+        <label for="test_string">Test String:</label>
+        <input type="text" id="test_string" name="test_string" style="width:400px;" required><br><br>
+
+        <label for="regex">Regex Pattern:</label>
+        <input type="text" id="regex" name="regex" style="width:400px;" required><br><br>
+
+        <input type="submit" value="Find Matches">
+    </form>
+
+    {% if matches is not none %}
+        <h2>Matches:</h2>
+        <ul>
+            {% for match in matches %}
+                <li>{{ match }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    </div>
+</body>
+</html>
